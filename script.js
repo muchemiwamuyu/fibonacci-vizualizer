@@ -1,28 +1,7 @@
-
-/**
- * Input field for user to enter number.
- * @type {HTMLInputElement}
- */
 const fibNumberInput = document.getElementById('fibInput');
-
-/**
- * Button to trigger Fibonacci generation.
- * @type {HTMLButtonElement}
- */
 const generateSequenceBtn = document.getElementById('generateBtn');
-
-/**
- * Output container for visualized Fibonacci numbers.
- * @type {HTMLElement}
- */
 const fibResult = document.getElementById('output');
 
-/**
- * Generate a Fibonacci sequence up to n terms.
- *
- * @param {number} n - Number of Fibonacci terms to generate.
- * @returns {number[]} Array containing the Fibonacci sequence.
- */
 function fibonacci_sequence(n) {
   const seq = [0, 1];
 
@@ -49,7 +28,31 @@ generateSequenceBtn.addEventListener('click', () => {
   }
 
   const sequence = fibonacci_sequence(n);
-  fibResult.innerHTML = sequence
-    .map(num => `<span class="inline-block bg-indigo-500 text-white px-3 py-1 rounded-full m-1">${num}</span>`)
-    .join('');
+  fibResult.innerHTML = ''; // Clear previous
+
+  const max = Math.max(...sequence); // For scaling height
+
+  sequence.forEach((num, i) => {
+    const bar = document.createElement('div');
+    const label = document.createElement('div');
+
+    // Bar container
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex flex-col items-center';
+
+    // Bar element
+    bar.className =
+      `bg-indigo-500 w-6 rounded-t transition-all duration-300`;
+    bar.style.height = `${(num / max) * 200}px`; // scaled height
+
+    // Label element
+    label.className = 'text-sm text-white mt-2';
+    label.innerText = num;
+
+    wrapper.appendChild(bar);
+    wrapper.appendChild(label);
+
+    fibResult.appendChild(wrapper);
+  });
 });
+
