@@ -1,0 +1,27 @@
+{
+  "name": "fibonacci-vizualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "jsdoc script.js -d out",
+    "deploy-docs": "gh-pages -d out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muchemiwamuyu/fibonacci-vizualizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/muchemiwamuyu/fibonacci-vizualizer/issues"
+  },
+  "homepage": "https://github.com/muchemiwamuyu/fibonacci-vizualizer#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "jsdoc": "^4.0.4"
+  }
+}
